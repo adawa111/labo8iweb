@@ -1,4 +1,4 @@
-package fantasy.lab8iweb.Servlet;
+package Servlet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

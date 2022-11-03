@@ -1,12 +1,12 @@
-package fantasy.lab8iweb.Servlet;
+package Servlet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "IndexServlet", value = "/IndexServlet")
-public class IndexServlet extends HttpServlet {
+@WebServlet(name = "EnemigosServlet", value = "/EnemigosServlet")
+public class EnemigosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
