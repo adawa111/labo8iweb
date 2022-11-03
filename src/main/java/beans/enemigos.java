@@ -5,4 +5,5 @@ public class enemigos {
     private int edad;
     private String genero;
     private String jijija;
+
 }
