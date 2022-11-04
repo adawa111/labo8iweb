@@ -1,6 +1,16 @@
 package beans;
 
 public class Enemigos {
+    private int idVillanos;
+
+    public int getIdVillanos() {
+        return idVillanos;
+    }
+
+    public void setIdVillanos(int idVillanos) {
+        this.idVillanos = idVillanos;
+    }
+
     private String nombre;
     private int ataque;
     private int experiencia;

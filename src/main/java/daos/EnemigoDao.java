@@ -13,17 +13,17 @@ public class EnemigoDao {
             throw new RuntimeException(e);
         }
 
-        String url = "jdbc:mysql://localhost:3306/lab8"; //modificar HR
+        String url = "jdbc:mysql://localhost:3306/hr"; //modificar HR
         ArrayList<Enemigos> lista = new ArrayList<>();
         String sql = "select * from enemigos";
 
-        try (Connection connection = DriverManager.getConnection(url, "root", "123456");
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
                 Enemigos enemigos = new Enemigos();
 
-                enemigos.setClase(rs.getInt(1));
+                enemigos.setIdEnemigo(rs.getInt(1));
                 enemigos.setNombre(rs.getString(2));
                 enemigos.setAtaque(rs.getInt(3));
                 enemigos.setExperiencia(rs.getInt(4));
@@ -59,7 +59,7 @@ public class EnemigoDao {
 
                 Enemigos enemigos = new Enemigos();
 
-                enemigos.setClase(rs.getInt(1));
+                enemigos.setIdEnemigo(rs.getInt(1));
                 enemigos.setNombre(rs.getString(2));
                 enemigos.setAtaque(rs.getInt(3));
                 enemigos.setExperiencia(rs.getInt(4));
