@@ -1,31 +1,32 @@
 package beans;
 
 public class Enemigos {
-    private int idVillanos;
-
-    public int getIdVillanos() {
-        return idVillanos;
-    }
-
-    public void setIdVillanos(int idVillanos) {
-        this.idVillanos = idVillanos;
-    }
-
     private String nombre;
     private int ataque;
     private int experiencia;
     private String objeto;
     private float probabilidadObjeto;
     private String genero;
-    private int clase;
-    public int getClase() {
+    private String clase;
+
+    private int idVillano;
+
+    public int getIdVillano() {
+        return idVillano;
+    }
+
+    public void setIdVillano(int idVillano) {
+        this.idVillano = idVillano;
+    }
+
+    public String getClase() {
         return clase;
     }
 
-    public void setClase(int clase) {
+    public void setClase(String clase) {
         this.clase = clase;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
