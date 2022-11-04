@@ -60,10 +60,10 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html" class="active">Principal</a></li>
-                        <li><a href="explore.html">Héroes</a></li>
-                        <li><a href="details.html">Enemigos</a></li>
-                        <li><a href="author.html">Hechizos</a></li>
-                        <li><a href="create.html">Catálogo de objetos</a></li>
+                        <li><a href="heroes.html">Héroes</a></li>
+                        <li><a href="enemigos.html">Enemigos</a></li>
+                        <li><a href="hechizos.html.html">Hechizos</a></li>
+                        <li><a href="catalogo.html">Catálogo de objetos</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -81,18 +81,25 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 align-self-center">
-                <div class=" header-text">
-                    <div class="card" style="width: 40rem;background-color: #00000090;border-top-width: 10px;border-left-width: 10px;border-right-width: 10px;border-bottom-width: 10px;">
-                        <h3>Final Fantasy games<p></p></h3>
-                        <h1>¡Todo lo que debes saber del juego!</h1>
-                        <h3>Niveles, Experiencia, Debilidades, Fortalezas, Potencia &amp; más.</h3>
-                        <p>Liberty NFT Market is a really cool and professional design for your NFT websites. This HTML CSS template is based on Bootstrap v5 and it is designed for NFT related web portals. Liberty can be freely downloaded from TemplateMo's free css templates.</p>
+                <div class="header-text">
+
+                    <div class="card"  style="width: 40.5rem; height: 20rem; margin-top: 0rem;background-color: #00000090;">
+                        <div class="container">
+                            <p>
+                            <p></p>
+                            <div align = "left">
+                                <h4> Final Fantasy Games </h4>
+                                <p></p>
+                                <h3>¡Todo lo que debes saber del juego!</h3>
+                                <p></p>
+                                <h4>Niveles, Experiencia, Debilidades, Fortalezas Potencia &amp; más.</h4>
+                                <p>Tendrás la oportunidad de elegir si quieres ser héroe o villano, en esta wiki podrás descubrir detalles sobre la clase, la experiencia, el ataque, los objetos guardados y los hechizos de tu personaje</p>
+                            </div>
+                        </div>
+                        <p></p>
+
                     </div>
-                        <h3>Final Fantasy games<p></p></h3>
-                        <h1>¡Todo lo que debes saber del juego!</h1>
-                        <h3>Niveles, Experiencia, Debilidades, Fortalezas, Potencia &amp; más.</h3>
-                        <p>Liberty NFT Market is a really cool and professional design for your NFT websites. This HTML CSS template is based on Bootstrap v5 and it is designed for NFT related web portals. Liberty can be freely downloaded from TemplateMo's free css templates.</p>
-                    </div>
+
                     <div class="buttons">
                         <div class="border-button">
                             <a href="https://www.youtube.com/watch?v=Pm67u0wQFe4">Tráiler: Última Saga</a>
