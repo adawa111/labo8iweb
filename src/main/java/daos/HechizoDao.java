@@ -22,11 +22,23 @@ public class HechizoDao {
              ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
                 Hechizos hechizos = new Hechizos();
-                hechizos.setNombreHechizo(rs.getString(1));
-                hechizos.setPotencia(rs.getInt(2));
-                hechizos.setPrecision(rs.getInt(3));
-                hechizos.setNivelAprendizaje(rs.getInt(4));
-                hechizos.setHechizoBase(rs.getInt(5));
+                hechizos.setIdHechizos(rs.getInt("idHechizos"));
+                hechizos.setNombreHechizo(rs.getString("NombreHechizos"));
+                hechizos.setPotencia(rs.getInt("Potencia"));
+                hechizos.setPrecision(rs.getInt("Precision"));
+                hechizos.setNivelAprendizaje(rs.getInt("NivelAprendizaje"));
+                hechizos.setHechizoBase(rs.getInt("idHechizoBase"));
+                String nombreelemento;
+                int ele = rs.getInt("Elementos_idElementos");
+                try (Connection connection1 = DriverManager.getConnection(url, "root", "123456");
+                     Statement stmt1 = connection1.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                     ResultSet rs1 = stmt1.executeQuery(sql);) {
+                    rs1.absolute(ele);
+                    nombreelemento = rs1.getString("Nombre");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                hechizos.setElemento(nombreelemento);
                 listaHechizos.add(hechizos);
             }
         } catch (SQLException e) {
@@ -34,4 +46,6 @@ public class HechizoDao {
         }
         return listaHechizos;
     }
+
+
 }
