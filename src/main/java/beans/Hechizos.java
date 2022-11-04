@@ -7,6 +7,26 @@ public class Hechizos {
     private int nivelAprendizaje;
     private int hechizoBase;
 
+    private int idHechizos;
+
+    private String elemento;
+
+    public int getIdHechizos() {
+        return idHechizos;
+    }
+
+    public void setIdHechizos(int idHechizos) {
+        this.idHechizos = idHechizos;
+    }
+
+    public String getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(String elemento) {
+        this.elemento = elemento;
+    }
+
     public String getNombreHechizo() {
         return nombreHechizo;
     }

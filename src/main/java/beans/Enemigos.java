@@ -7,7 +7,15 @@ public class Enemigos {
     private String objeto;
     private float probabilidadObjeto;
     private String genero;
+    private int clase;
+    public int getClase() {
+        return clase;
+    }
 
+    public void setClase(int clase) {
+        this.clase = clase;
+    }
+    
     public String getNombre() {
         return nombre;
     }

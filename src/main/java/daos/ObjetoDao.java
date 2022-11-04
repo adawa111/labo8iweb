@@ -17,7 +17,7 @@ public class ObjetoDao {
         ArrayList<Objetos> lista = new ArrayList<>();
         String sql = "select * from objetos";
 
-        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+        try (Connection connection = DriverManager.getConnection(url, "root", "123456");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
 

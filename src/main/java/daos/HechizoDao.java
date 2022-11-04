@@ -14,10 +14,10 @@ public class HechizoDao {
         }
 
         String url = "jdbc:mysql://localhost:3306/lab8";
-        ArrayList<Hechizos> lista = new ArrayList<>();
+        ArrayList<Hechizos> listaHechizos = new ArrayList<>();
         String sql = "select * from hechizos";
 
-        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+        try (Connection connection = DriverManager.getConnection(url, "root", "123456");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
@@ -27,11 +27,11 @@ public class HechizoDao {
                 hechizos.setPrecision(rs.getInt(3));
                 hechizos.setNivelAprendizaje(rs.getInt(4));
                 hechizos.setHechizoBase(rs.getInt(5));
-                lista.add(hechizos);
+                listaHechizos.add(hechizos);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return lista;
+        return listaHechizos;
     }
 }

@@ -17,7 +17,7 @@ public class HeroeDao {
         ArrayList<Heroes> lista = new ArrayList<>();
         String sql = "select * from heroes";
 
-        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+        try (Connection connection = DriverManager.getConnection(url, "root", "123426");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
@@ -27,7 +27,7 @@ public class HeroeDao {
                 heroes.setEdad(rs.getInt(2));
                 heroes.setGenero(rs.getString(3));
                 heroes.setNivel(rs.getInt(4));
-                heroes.setAtaque(rs.getString(5));
+                heroes.setAtaque(rs.getInt(5));
                 heroes.setPareja(rs.getInt(6));
                 heroes.setExperiencia(rs.getFloat(7));
                 heroes.setClase(rs.getString(8));
