@@ -1,6 +1,6 @@
 package beans;
 
-public class enemigos {
+public class Enemigos {
     private String nombre;
     private int ataque;
     private int experiencia;

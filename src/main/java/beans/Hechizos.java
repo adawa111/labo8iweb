@@ -1,6 +1,6 @@
 package beans;
 
-public class hechizos {
+public class Hechizos {
     private String nombreHechizo;
     private int potencia;
     private int precision;

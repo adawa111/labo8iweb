@@ -1,6 +1,6 @@
 package beans;
 
-public class objetos {
+public class Objetos {
     private String nombreobjeto;
     private String efecto;
     private float peso;

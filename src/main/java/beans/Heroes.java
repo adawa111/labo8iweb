@@ -1,6 +1,6 @@
 package beans;
 
-public class heroes {
+public class Heroes {
     private String nombre;
     private int edad;
     private String genero;
