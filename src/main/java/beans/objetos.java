@@ -4,7 +4,7 @@ public class objetos {
     private String nombreobjeto;
     private String efecto;
     private float peso;
-    private boolean usadoo;
+    private boolean usado;
 
     public String getNombreobjeto() {
         return nombreobjeto;
