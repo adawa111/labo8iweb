@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `lab8` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `lab8`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: lab8
@@ -107,26 +109,23 @@ CREATE TABLE `hechizos` (
   `Potencia` int NOT NULL,
   `Precision` int NOT NULL,
   `NivelAprendizaje` int DEFAULT NULL,
-  `HechizoBase` int DEFAULT NULL,
   `Heroes_idHeroes` int NOT NULL,
   `Elementos_idElementos` int NOT NULL,
+  `idHechizoBase` int DEFAULT NULL,
   PRIMARY KEY (`idHechizos`),
   KEY `fk_Hechizos_Heroes_idx` (`Heroes_idHeroes`),
   KEY `fk_Hechizos_Elementos1_idx` (`Elementos_idElementos`),
+  KEY `fk_Hechizos_Hechizos1_idx` (`idHechizoBase`),
   CONSTRAINT `fk_Hechizos_Elementos1` FOREIGN KEY (`Elementos_idElementos`) REFERENCES `elementos` (`idElementos`),
-  CONSTRAINT `fk_Hechizos_Heroes` FOREIGN KEY (`Heroes_idHeroes`) REFERENCES `heroes` (`idHeroes`)
+  CONSTRAINT `fk_Hechizos_Heroes` FOREIGN KEY (`Heroes_idHeroes`) REFERENCES `heroes` (`idHeroes`),
+  CONSTRAINT `fk_Hechizos_Hechizos1` FOREIGN KEY (`idHechizoBase`) REFERENCES `hechizos` (`idHechizos`)
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `hechizos`
 --
-
-LOCK TABLES `hechizos` WRITE;
-/*!40000 ALTER TABLE `hechizos` DISABLE KEYS */;
-INSERT INTO `hechizos` VALUES (1,'Infierno',56,34,6,1,1,1),(2,'Combustion',47,56,4,2,6,1),(3,'Tornado',34,45,5,3,3,4),(4,'Maremoto',78,70,NULL,4,2,3),(5,'Terremoto',80,65,7,5,1,2),(6,'Torbellino',45,34,9,6,6,4),(7,'Magia',40,67,3,7,4,5),(8,'Huracan',75,46,10,8,5,4),(9,'Tsunami',88,89,2,9,2,3),(10,'Huayco',54,36,1,10,5,2);
-/*!40000 ALTER TABLE `hechizos` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `heroes`
