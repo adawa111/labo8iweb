@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public class HeroesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HeroeDao heroeDao = new HeroeDao();
+        System.out.println("]*********");
         String accion = request.getParameter("accion")==null?"heroes":request.getParameter("accion");
         RequestDispatcher view;
 
@@ -20,7 +22,10 @@ public class HeroesServlet extends HttpServlet {
             case ("añadir"):
 
                 break;
-            case ("heroes"):
+            case "heroes":
+                request.setAttribute("ListaHeroes", heroeDao.listarHeroes());
+                System.out.println("a");
+                view = request.getRequestDispatcher("menuheroe.jsp");
                 break;
         }
     }

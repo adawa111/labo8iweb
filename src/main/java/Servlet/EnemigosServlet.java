@@ -32,7 +32,7 @@ public class EnemigosServlet extends HttpServlet {
 
             case "borrar":
                 villanoId = request.getParameter("id");
-                enemigoDao.borrar(villanoId);
+
 
                 response.sendRedirect(request.getContextPath() + "/EnemigoServlet");
                 break;

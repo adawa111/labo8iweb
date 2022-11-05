@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +60,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html" class="active">Principal</a></li>
-                        <li><a href="heroes.html">Héroes</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
                         <li><a href="enemigos.html">Enemigos</a></li>
                         <li><a href="hechizos.html.html">Hechizos</a></li>
                         <li><a href="catalogo.html">Catálogo de objetos</a></li>
