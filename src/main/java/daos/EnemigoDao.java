@@ -39,41 +39,6 @@ public class EnemigoDao {
         return lista;
     }
 
-
-    public ArrayList<Enemigos> listarObjetosDeEnemigos() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        String url = "jdbc:mysql://localhost:3306/finalfantasy";
-        ArrayList<Enemigos> lista = new ArrayList<>();
-        String sql = "select * from enemigos"; //modificar Query
-        try (Connection connection = DriverManager.getConnection(url, "root", "root");
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);) {
-
-            while (rs.next()) {
-
-                Enemigos enemigos = new Enemigos();
-
-                enemigos.setIdVillanos(rs.getInt(1));
-                enemigos.setNombre(rs.getString(2));
-                enemigos.setAtaque(rs.getInt(3));
-                enemigos.setExperiencia(rs.getInt(4));
-                enemigos.setObjeto(rs.getString(5));
-                enemigos.setGenero(rs.getString(6));
-                enemigos.setCase_idClase(Integer.parseInt(rs.getString(7)));
-
-                lista.add(enemigos);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return lista;
-    }
-
     public void borrar(String villanoId) {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -104,7 +69,7 @@ public class EnemigoDao {
         }
 
         String url = "jdbc:mysql://localhost:3306/finalfantasy";
-        String sql= "insert into enemigos (idVillanos, nombre, ataque, experiencia, objeto, probabilidadObjeto, genero) values (?,?,?,?,?,?,?,?)";
+        String sql= "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) values (?,?,?,?,?,?,?,?)";
 
         try(Connection connection = DriverManager.getConnection(url, "root", "root");
             PreparedStatement pstmt = connection.prepareStatement(sql)){
