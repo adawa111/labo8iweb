@@ -1,25 +1,14 @@
 package beans;
 
 public class Hechizos {
+    private int idHechizos;
     private String nombreHechizo;
     private int potencia;
     private int precision;
     private int nivelAprendizaje;
-    private int idhechizoBase;
-
-    private int idHechizos;
-
-    private String elemento;
-
-    private int idElemento;
-
-    public int getIdElemento() {
-        return idElemento;
-    }
-
-    public void setIdElemento(int idElemento) {
-        this.idElemento = idElemento;
-    }
+    private Hechizos heroes_idHeroes;
+    private Hechizos elemento_idElemento;
+    private Hechizos idHechizoBase;
 
     public int getIdHechizos() {
         return idHechizos;
@@ -27,14 +16,6 @@ public class Hechizos {
 
     public void setIdHechizos(int idHechizos) {
         this.idHechizos = idHechizos;
-    }
-
-    public String getElemento() {
-        return elemento;
-    }
-
-    public void setElemento(String elemento) {
-        this.elemento = elemento;
     }
 
     public String getNombreHechizo() {
@@ -69,11 +50,27 @@ public class Hechizos {
         this.nivelAprendizaje = nivelAprendizaje;
     }
 
-    public int getIdhechizoBase() {
-        return idhechizoBase;
+    public Hechizos getHeroes_idHeroes() {
+        return heroes_idHeroes;
     }
 
-    public void setHechizoBase(int idhechizoBase) {
-        this.idhechizoBase = idhechizoBase;
+    public void setHeroes_idHeroes(Hechizos heroes_idHeroes) {
+        this.heroes_idHeroes = heroes_idHeroes;
+    }
+
+    public Hechizos getElemento_idElemento() {
+        return elemento_idElemento;
+    }
+
+    public void setElemento_idElemento(Hechizos elemento_idElemento) {
+        this.elemento_idElemento = elemento_idElemento;
+    }
+
+    public Hechizos getIdHechizoBase() {
+        return idHechizoBase;
+    }
+
+    public void setIdHechizoBase(Hechizos idHechizoBase) {
+        this.idHechizoBase = idHechizoBase;
     }
 }
