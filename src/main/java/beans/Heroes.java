@@ -6,11 +6,21 @@ public class Heroes {
     private String genero;
     private int nivel;
 
+    private int idHeroe;
+
 
     private int ataque;
     private int pareja;
     private float experiencia;
     private String clase;
+
+    public int getIdHeroe() {
+        return idHeroe;
+    }
+
+    public void setIdHeroe(int idHeroe) {
+        this.idHeroe = idHeroe;
+    }
 
     public String getNombre() {
         return nombre;
