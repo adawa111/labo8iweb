@@ -1,25 +1,18 @@
 package beans;
 
 public class Objetos {
-    private String nombreobjeto;
-    private String efecto;
+    private int idObjetos;
     private float peso;
+    private String nombreObjeto;
+    private String efecto;
     private boolean usado;
 
-    public String getNombreobjeto() {
-        return nombreobjeto;
+    public int getIdObjetos() {
+        return idObjetos;
     }
 
-    public void setNombreobjeto(String nombreobjeto) {
-        this.nombreobjeto = nombreobjeto;
-    }
-
-    public String getEfecto() {
-        return efecto;
-    }
-
-    public void setEfecto(String efecto) {
-        this.efecto = efecto;
+    public void setIdObjetos(int idObjetos) {
+        this.idObjetos = idObjetos;
     }
 
     public float getPeso() {
@@ -28,6 +21,22 @@ public class Objetos {
 
     public void setPeso(float peso) {
         this.peso = peso;
+    }
+
+    public String getNombreObjeto() {
+        return nombreObjeto;
+    }
+
+    public void setNombreObjeto(String nombreObjeto) {
+        this.nombreObjeto = nombreObjeto;
+    }
+
+    public String getEfecto() {
+        return efecto;
+    }
+
+    public void setEfecto(String efecto) {
+        this.efecto = efecto;
     }
 
     public boolean isUsado() {
