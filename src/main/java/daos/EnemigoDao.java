@@ -64,7 +64,7 @@ public class EnemigoDao {
                 enemigos.setExperiencia(rs.getInt(4));
                 enemigos.setObjeto(rs.getString(5));
                 enemigos.setGenero(rs.getString(6));
-                enemigos.setClase(Integer.parseInt(rs.getString(7)));
+                enemigos.setCase_idClase(Integer.parseInt(rs.getString(7)));
 
                 lista.add(enemigos);
             }

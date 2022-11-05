@@ -23,7 +23,7 @@ public class ObjetoDao {
 
             while (rs.next()) {
                 Objetos objetos = new Objetos();
-                objetos.setNombreobjeto(rs.getString(1));
+                objetos.setNombreObjeto(rs.getString(1));
                 objetos.setEfecto(rs.getString(2));
                 objetos.setPeso(rs.getFloat(3));
                 objetos.setUsado(rs.getBoolean(4));

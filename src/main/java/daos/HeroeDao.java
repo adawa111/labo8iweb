@@ -25,13 +25,13 @@ public class HeroeDao {
             while (rs.next()) {
 
                 Heroes heroes = new Heroes();
-                heroes.setIdHeroe(rs.getInt("idHeroes"));
+                heroes.setIdHeroes(rs.getInt("idHeroes"));
                 heroes.setNombre(rs.getString("Nombre"));
                 heroes.setEdad(rs.getInt("Edad"));
                 heroes.setGenero(rs.getString("Genero"));
                 heroes.setNivel(rs.getInt("Nivel"));
                 heroes.setAtaque(rs.getInt("Ataque"));
-                heroes.setPareja(rs.getInt("idPareja"));
+                heroes.setIdPareja(rs.getInt("idPareja"));
                 heroes.setClase(rs.getString("Clase"));
                 level = rs.getInt("Nivel");
                 if (0<level && level<=15){
@@ -41,7 +41,7 @@ public class HeroeDao {
                 } else if (36<=level && level<=100) {
                     exp = (level*level*level)*(32+(level)/2)/50;
                 }
-                heroes.setExperiencia(exp);
+                heroes.setExperienciaInicial(exp);
                 listaHeroes.add(heroes);
             }
         } catch (SQLException e) {

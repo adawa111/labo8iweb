@@ -8,6 +8,37 @@ public class Hechizos {
     private int nivelAprendizaje;
     private Hechizos heroes_idHeroes;
     private Hechizos elemento_idElemento;
+
+    private String elemento;
+
+    private int base;
+
+    private int nelemento;
+
+    public String getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(String elemento) {
+        this.elemento = elemento;
+    }
+
+    public int getBase() {
+        return base;
+    }
+
+    public void setBase(int base) {
+        this.base = base;
+    }
+
+    public int getNelemento() {
+        return nelemento;
+    }
+
+    public void setNelemento(int nelemento) {
+        this.nelemento = nelemento;
+    }
+
     private Hechizos idHechizoBase;
 
     public int getIdHechizos() {
