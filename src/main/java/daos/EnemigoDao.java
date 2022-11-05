@@ -13,43 +13,30 @@ public class EnemigoDao {
             throw new RuntimeException(e);
         }
 
-        String url = "jdbc:mysql://localhost:3306/lab8"; //modificar HR
-        ArrayList<Enemigos> listaEnemigos = new ArrayList<>();
+        String url = "jdbc:mysql://localhost:3306/hr"; //modificar HR
+        ArrayList<Enemigos> lista = new ArrayList<>();
         String sql = "select * from enemigos";
-        String sql1 = "select * from elementos";
 
-        try (Connection connection = DriverManager.getConnection(url, "root", "123456");
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
-            int clasene;
-            String nombreclase;
-            while (rs.next()){
+            while (rs.next()) {
                 Enemigos enemigos = new Enemigos();
-                enemigos.setIdVillano(rs.getInt("Idvillanos"));
-                clasene = (rs.getInt("Clase_idClase"));
-                enemigos.setNombre(rs.getString("Nombre"));
-                enemigos.setAtaque(rs.getInt("Ataque"));
-                enemigos.setExperiencia(rs.getInt("Experiencia"));
-                enemigos.setObjeto(rs.getString("Objeto"));
-                enemigos.setProbabilidadObjeto(rs.getFloat("ProbabilidadObjeto"));
-                enemigos.setGenero(rs.getString("Genero"));
-                enemigos.setClaseidClase(rs.getInt("Clase_idClase"));
-                try (Connection connection2 = DriverManager.getConnection(url, "root", "123456");
-                     Statement stmt2 = connection2.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                     ResultSet rs1 = stmt2.executeQuery(sql1);) {
-                    rs1.absolute(clasene);
-                    nombreclase = rs1.getString("NombreElemento");
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                enemigos.setClase(nombreclase);
-                listaEnemigos.add(enemigos);
+
+                enemigos.setIdVillanos(rs.getInt(1));
+                enemigos.setNombre(rs.getString(2));
+                enemigos.setAtaque(rs.getInt(3));
+                enemigos.setExperiencia(rs.getInt(4));
+                enemigos.setObjeto(rs.getString(5));
+                enemigos.setGenero(rs.getString(6));
+
+                lista.add(enemigos);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        return listaEnemigos;
+        return lista;
     }
 
 
@@ -60,30 +47,78 @@ public class EnemigoDao {
             throw new RuntimeException(e);
         }
 
-        String url = "jdbc:mysql://localhost:3306/hr";
-        ArrayList<Enemigos> listaObEn = new ArrayList<>();
+        String url = "jdbc:mysql://localhost:3306/finalfantasy";
+        ArrayList<Enemigos> lista = new ArrayList<>();
         String sql = "select * from enemigos"; //modificar Query
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
-            int clasene;
+
             while (rs.next()) {
 
                 Enemigos enemigos = new Enemigos();
 
-                clasene = (rs.getInt(1));
+                enemigos.setIdVillanos(rs.getInt(1));
                 enemigos.setNombre(rs.getString(2));
                 enemigos.setAtaque(rs.getInt(3));
                 enemigos.setExperiencia(rs.getInt(4));
                 enemigos.setObjeto(rs.getString(5));
-                enemigos.setExperiencia(rs.getInt(6));
-                enemigos.setGenero(rs.getString(7));
+                enemigos.setGenero(rs.getString(6));
+                enemigos.setClase(Integer.parseInt(rs.getString(7)));
 
-                listaObEn.add(enemigos);
+                lista.add(enemigos);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return listaObEn;
+        return lista;
+    }
+
+    public void borrar(String villanoId) {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }catch (ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
+        String url = "jdbc:mysql://localhost:3306/finalfantasy";
+        String sql = "DELETE FROM enemigos WHERE idEnemigos = ?";
+
+        try(Connection connection = DriverManager.getConnection(url, "root","root");
+
+            PreparedStatement pstmt = connection.prepareStatement(sql)){
+
+            pstmt.setString(1,villanoId);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void anadirEnemigo(int idVillano,String nombre,int ataque,int experiencia, String objeto, float probabilidadObjeto, String genero){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/finalfantasy";
+        String sql= "insert into enemigos (idVillanos, nombre, ataque, experiencia, objeto, probabilidadObjeto, genero) values (?,?,?,?,?,?,?,?)";
+
+        try(Connection connection = DriverManager.getConnection(url, "root", "root");
+            PreparedStatement pstmt = connection.prepareStatement(sql)){
+            pstmt.setInt(1,idVillano);
+            pstmt.setString(2,nombre);
+            pstmt.setInt(3,ataque);
+            pstmt.setInt(4, experiencia);
+            pstmt.setString(5,objeto);
+            pstmt.setFloat(6,probabilidadObjeto);
+            pstmt.setString(7,genero);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
