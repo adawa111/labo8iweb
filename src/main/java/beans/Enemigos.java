@@ -1,41 +1,21 @@
 package beans;
 
 public class Enemigos {
+    private int idVillanos;
     private String nombre;
     private int ataque;
     private int experiencia;
     private String objeto;
     private float probabilidadObjeto;
     private String genero;
+    private int case_idClase;
 
-    private int claseidClase;
-
-    private String clase;
-
-    public String getClase() {
-        return clase;
-    }
-
-    public void setClase(String clase) {
-        this.clase = clase;
-    }
-
-    public int getClaseidClase() {
-        return claseidClase;
-    }
-
-    public void setClaseidClase(int claseidClase) {
-        this.claseidClase = claseidClase;
-    }
-
-    private int idVillanos;
-
-    public int getIdVillano() {
+    public int getIdVillanos() {
         return idVillanos;
     }
 
-    public void setIdVillano(int idVillano) {
-        this.idVillanos = idVillano;
+    public void setIdVillanos(int idVillanos) {
+        this.idVillanos = idVillanos;
     }
 
     public String getNombre() {
@@ -84,5 +64,13 @@ public class Enemigos {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public int getCase_idClase() {
+        return case_idClase;
+    }
+
+    public void setCase_idClase(int case_idClase) {
+        this.case_idClase = case_idClase;
     }
 }
