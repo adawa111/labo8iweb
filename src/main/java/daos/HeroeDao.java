@@ -5,6 +5,8 @@ import beans.Heroes;
 import java.sql.*;
 import java.util.ArrayList;
 
+
+
 public class HeroeDao {
     public ArrayList<Heroes> listarHeroes() {
         try {

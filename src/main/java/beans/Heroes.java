@@ -7,7 +7,7 @@ public class Heroes {
     private String genero;
     private int nivel;
     private int ataque;
-    private int idPareja;
+    private Heroes idPareja;
     private float experienciaInicial;
     private String clase;
 
@@ -59,11 +59,11 @@ public class Heroes {
         this.ataque = ataque;
     }
 
-    public int getIdPareja() {
+    public Heroes getIdPareja() {
         return idPareja;
     }
 
-    public void setIdPareja(int idPareja) {
+    public void setIdPareja(Heroes idPareja) {
         this.idPareja = idPareja;
     }
 

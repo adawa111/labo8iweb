@@ -1,11 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Angie
-  Date: 3/11/2022
-  Time: 16:12
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="beans.Heroes" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList" %>
+
+<%
+    ArrayList<Heroes> listaHeroes = (ArrayList <Heroes>) request.getAttribute("ListaHeroes");
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +91,8 @@
             <div class="col-lg-5">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Descubre algunos de nuestros <em> Héroes </em></h2>
+                    <h2>Lista de <em> Héroes </em></h2>
+                </div>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -112,243 +114,69 @@
                                 <button class="main-button" style="margin-left: 20rem; margin-top: 0.7rem" >Añadir héroe</button>
                             </fieldset>
                         </div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>id</th>
+                                    <th>nombre</th>
+                                    <th>apellido</th>
+                                    <th>email</th>
+                                </tr>
+
+                                <tbody>
+                                <% int i = 1;
+                                    for (Heroes heroes : listaHeroes) { %>
+                                <tr>
+                                    <td><%=i%>
+                                    </td>
+                                    <td><%=heroes.getIdHeroe()%>
+                                    </td>
+                                    <td><%=heroes.getNombre()%>
+                                    </td>
+                                    <td><%=heroes.getEdad()%>
+                                    </td>
+                                    <td><%=heroes.getGenero()%>
+                                    </td>
+                                    <td><%=heroes.getClase()%>
+                                    </td>
+                                    <td><%=heroes.getNivel()%>
+                                    </td>
+                                    <td><%=heroes.getAtaque()%>
+                                    </td>
+                                    <td><%=heroes.getPareja()%>
+                                    </td>
+                                    <td><%=heroes.getExperiencia()%>
+                                    </td>
+                                </tr>
+                                <% i++;
+                                }
+                                %>
+                                </tbody>
+                                </thead>
+                            </table>
+
+                        </div>
                     </div>
                 </form>
             </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje1.jpg" alt="" style="border-radius: 20px;">
-                            <h4>Mold</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje2.jpg" alt="" style="border-radius: 20px;">
-                            <h4>Erde</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje3.jpg" alt="" style="border-radius: 20px">
-                            <h4>Noctus</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje4.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Ravus</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>3.63 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>24th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje5.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Yuna</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>4.68 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>28th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje6.jpg" alt="" style="border-radius: 20px;margin-top: 7px">
-                            <h4>Cindy</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje7.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Karl</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje8.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Ape</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.64 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
 
 
 
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="assets/js/isotope.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
 
-<script src="assets/js/tabs.js"></script>
-<script src="assets/js/popup.js"></script>
-<script src="assets/js/custom.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
 
 </body>
 </html>
