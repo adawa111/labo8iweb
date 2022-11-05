@@ -61,7 +61,7 @@ public class EnemigoDao {
 
     }
 
-    public void anadirEnemigo(int idVillano,String nombre,int ataque,int experiencia, String objeto, float probabilidadObjeto, String genero){
+    public void anadirEnemigo(String nombre,int ataque,int experiencia, String objeto, float probabilidadObjeto, String genero,int clase_idClase){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -69,21 +69,43 @@ public class EnemigoDao {
         }
 
         String url = "jdbc:mysql://localhost:3306/finalfantasy";
-        String sql= "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) values (?,?,?,?,?,?,?,?)";
+        String sql= "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " +
+                "values (?,?,?,?,?,?,?,?)";
 
         try(Connection connection = DriverManager.getConnection(url, "root", "root");
             PreparedStatement pstmt = connection.prepareStatement(sql)){
-            pstmt.setInt(1,idVillano);
-            pstmt.setString(2,nombre);
-            pstmt.setInt(3,ataque);
-            pstmt.setInt(4, experiencia);
-            pstmt.setString(5,objeto);
-            pstmt.setFloat(6,probabilidadObjeto);
-            pstmt.setString(7,genero);
+            pstmt.setString(1,nombre);
+            pstmt.setInt(2,ataque);
+            pstmt.setInt(3, experiencia);
+            pstmt.setString(4,objeto);
+            pstmt.setFloat(5,probabilidadObjeto);
+            pstmt.setString(6,genero);
+            pstmt.setInt(7,clase_idClase);
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public int obtenerIdEnemigoDeEnemigo(String nombre){
+        int idVillano=1;
+        String url = "jdbc:mysql://localhost:3306/finalfantasy";
+        String sql="select idTiposDeZombie from TiposDeZombie where nombre = ?";
+        try(Connection connection = DriverManager.getConnection(url, "root", "root");
+            PreparedStatement pstmt= connection.prepareStatement(sql);){
+            pstmt.setString(1,nombre);
+
+            try(ResultSet rs= pstmt.executeQuery()){
+                if(rs.next()){
+                    idVillano = rs.getInt(1);
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return idVillano;
+    }
+
+
 }
