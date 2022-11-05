@@ -64,7 +64,7 @@ public class EnemigoDao {
                 enemigos.setExperiencia(rs.getInt(4));
                 enemigos.setObjeto(rs.getString(5));
                 enemigos.setGenero(rs.getString(6));
-                enemigos.setClase(Integer.parseInt(rs.getString(7)));
+                enemigos.setCase_idClase(Integer.parseInt(rs.getString(7)));
 
                 lista.add(enemigos);
             }
@@ -81,7 +81,7 @@ public class EnemigoDao {
             throw new RuntimeException(e);
         }
         String url = "jdbc:mysql://localhost:3306/finalfantasy";
-        String sql = "DELETE FROM enemigos WHERE idEnemigos = ?";
+        String sql = "DELETE FROM enemigos WHERE idVillanos = ?";
 
         try(Connection connection = DriverManager.getConnection(url, "root","root");
 
