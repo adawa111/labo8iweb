@@ -7,24 +7,25 @@ public class Enemigos {
     private String objeto;
     private float probabilidadObjeto;
     private String genero;
-    private String clase;
 
-    private int idVillano;
+    private int claseidClase;
+
+    public int getClaseidClase() {
+        return claseidClase;
+    }
+
+    public void setClaseidClase(int claseidClase) {
+        this.claseidClase = claseidClase;
+    }
+
+    private int idVillanos;
 
     public int getIdVillano() {
-        return idVillano;
+        return idVillanos;
     }
 
     public void setIdVillano(int idVillano) {
-        this.idVillano = idVillano;
-    }
-
-    public String getClase() {
-        return clase;
-    }
-
-    public void setClase(String clase) {
-        this.clase = clase;
+        this.idVillanos = idVillano;
     }
 
     public String getNombre() {

@@ -5,7 +5,7 @@ public class Hechizos {
     private int potencia;
     private int precision;
     private int nivelAprendizaje;
-    private int hechizoBase;
+    private int idhechizoBase;
 
     private int idHechizos;
 
@@ -59,11 +59,11 @@ public class Hechizos {
         this.nivelAprendizaje = nivelAprendizaje;
     }
 
-    public int getHechizoBase() {
-        return hechizoBase;
+    public int getIdhechizoBase() {
+        return idhechizoBase;
     }
 
-    public void setHechizoBase(int hechizoBase) {
-        this.hechizoBase = hechizoBase;
+    public void setHechizoBase(int idhechizoBase) {
+        this.idhechizoBase = idhechizoBase;
     }
 }
