@@ -16,6 +16,7 @@ public class EnemigoDao {
         String url = "jdbc:mysql://localhost:3306/lab8"; //modificar HR
         ArrayList<Enemigos> listaEnemigos = new ArrayList<>();
         String sql = "select * from enemigos";
+        String sql1 = "select * from elementos";
 
         try (Connection connection = DriverManager.getConnection(url, "root", "123456");
              Statement stmt = connection.createStatement();
@@ -30,12 +31,14 @@ public class EnemigoDao {
                 enemigos.setAtaque(rs.getInt("Ataque"));
                 enemigos.setExperiencia(rs.getInt("Experiencia"));
                 enemigos.setObjeto(rs.getString("Objeto"));
+                enemigos.setProbabilidadObjeto(rs.getFloat("ProbabilidadObjeto"));
                 enemigos.setGenero(rs.getString("Genero"));
+                enemigos.setClaseidClase(rs.getInt("Clase_idClase"));
                 try (Connection connection2 = DriverManager.getConnection(url, "root", "123456");
                      Statement stmt2 = connection2.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                     ResultSet rs1 = stmt2.executeQuery(sql);) {
+                     ResultSet rs1 = stmt2.executeQuery(sql1);) {
                     rs1.absolute(clasene);
-                    nombreclase = rs1.getString("Nombre");
+                    nombreclase = rs1.getString("NombreElemento");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

@@ -11,6 +11,16 @@ public class Hechizos {
 
     private String elemento;
 
+    private int idElemento;
+
+    public int getIdElemento() {
+        return idElemento;
+    }
+
+    public void setIdElemento(int idElemento) {
+        this.idElemento = idElemento;
+    }
+
     public int getIdHechizos() {
         return idHechizos;
     }

@@ -16,10 +16,12 @@ public class HechizoDao {
         String url = "jdbc:mysql://localhost:3306/lab8";
         ArrayList<Hechizos> listaHechizos = new ArrayList<>();
         String sql = "select * from hechizos";
+        String sql1 = "select * from elementos";
 
         try (Connection connection = DriverManager.getConnection(url, "root", "123456");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
+            int ele;
             while (rs.next()) {
                 Hechizos hechizos = new Hechizos();
                 hechizos.setIdHechizos(rs.getInt("idHechizos"));
@@ -29,12 +31,13 @@ public class HechizoDao {
                 hechizos.setNivelAprendizaje(rs.getInt("NivelAprendizaje"));
                 hechizos.setHechizoBase(rs.getInt("idHechizoBase"));
                 String nombreelemento;
-                int ele = rs.getInt("Elementos_idElementos");
+                hechizos.setIdElemento(rs.getInt("Elementos_idElementos"));
+                ele = rs.getInt("Elementos_idElementos");
                 try (Connection connection1 = DriverManager.getConnection(url, "root", "123456");
                      Statement stmt1 = connection1.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                     ResultSet rs1 = stmt1.executeQuery(sql);) {
+                     ResultSet rs1 = stmt1.executeQuery(sql1);) {
                     rs1.absolute(ele);
-                    nombreelemento = rs1.getString("Nombre");
+                    nombreelemento = rs1.getString("NombreElemento");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

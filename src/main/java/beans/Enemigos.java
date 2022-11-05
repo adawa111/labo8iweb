@@ -10,6 +10,16 @@ public class Enemigos {
 
     private int claseidClase;
 
+    private String clase;
+
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
+
     public int getClaseidClase() {
         return claseidClase;
     }
